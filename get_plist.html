@@ -1,0 +1,49 @@
+<!DOCTYPE html> 
+<html>  
+  <head>
+    <title>{{plists [plist_id][0]}}</title>
+    <style type="text/css">
+    <!--
+      body {
+        background: #ffffff;
+        font-family: Helvetica, Arial, sans-serif;
+        margin: 0px;
+        font-size: 12pt;
+      }
+
+      .titulo {
+        font-weight: bold;
+        padding-bottom: 3px;
+        padding-top: 3px;
+        padding-left: 3px;
+        border-bottom: 1px solid #D9D9D9;
+      }
+
+      .musica {
+        padding-bottom: 3px;
+        padding-top: 3px;
+        padding-left: 3px;
+        border-bottom: 1px solid #D9D9D9;
+      }
+      
+      .seta {
+        position:absolute;
+        right: 0px;
+        text-align: right;
+      }
+    -->
+    </style>
+  </head>
+  <body>
+    <div class="caixa_titulo">
+      <div class="titulo">Musicas</div>
+    </div> 
+    <div class="caixa_musicas">
+{% for song_id in plists [plist_id][1] %}
+      <a href="add_song_id_to_queue?song_id={{song_id}}&plist_id={{plist_id}}">
+      <div class="musica"><span class="musica_nome">{{songs [song_id][0].split('/')[-1]}}</span><span class="seta">&gt;</span></div>
+      </a>
+{% endfor %}
+    </div>
+  </body>
+</html>
